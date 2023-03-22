@@ -1,4 +1,4 @@
-  default: &default
+default: &default
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
@@ -8,7 +8,7 @@ development:
   username: root
   password:
   host: localhost
-  database: furima_38645_development
+  database: furima-38645_development
 
 test:
   <<: *default
@@ -16,7 +16,7 @@ test:
   username: root
   password:
   host: localhost
-  database: furima_38645_test
+  database: furima-38645_test
 
 production:
   <<: *default
