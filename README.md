@@ -30,20 +30,21 @@ Things you may want to cover:
 
 ## users テーブル
 
-| Column                | Type     | Options      |
-| --------------------- | -------- | ------------ |
-| nickname              | string   | null: false  |
-| email                 | string   | unique: true |
-| encrypted_password    | string   | null: false  |
-| firstname             | string   | null: false  |
-| lastname              | string   | null: false  |
-| firstnam              | string   | null: false  |
-| lastnameruby          | string   | null: false  |
-| birthday              | date     | null: false  |
+| Column                | Type     | Options                   |
+| --------------------- | -------- | ------------------------- |
+| nickname              | string   | null: false               |
+| email                 | string   | null: false  unique: true |
+| encrypted_password    | string   | null: false               |
+| firstname             | string   | null: fals                |
+| lastname              | string   | null: false               |
+| firstnam              | string   | null: false               |
+| lastnameruby          | string   | null: false               |
+| birthday              | date     | null: false               |
 
 ### Association
 has_many :items
 has_many :comments
+has_many :buys
 
 
 ## items テーブル
@@ -63,6 +64,7 @@ has_many :comments
 ### Association
 belongs_to :user
 has_many :comments
+belongs_to :buy
 
 
 ## comments テーブル
@@ -87,6 +89,9 @@ belongs_to :item
 
 ### Association
 has_one :deliverys
+belongs_to :user
+belongs_to :item
+
 
 
 ## deliverys テーブル
@@ -98,7 +103,7 @@ has_one :deliverys
 | cities          | string     | null: false                    |
 | address         | string     | null: false                    |
 | building        | string     |                                |
-| TEL             | string     | null: false,                   | 
+| tel             | string     | null: false,                   | 
 | buy             | references | null: false, foreign_key: true | 
 
 
