@@ -48,17 +48,17 @@ has_many :comments
 
 ## items テーブル
 
-| Column         | Type       |  Options                       |
-| -------------- | ---------  | ------------------------------ |
-| title          | string     | null: false                    |
-| descripition   | text       | null: false                    |
-| category       | integer    | null: false                    |
-| condition      | integer    | null: false                    |
-| price          | integer    | null: false                    |
-| postage        | integer    | null: false                    |
-| shippingarea   | integer    | null: false                    |
-| shippingdays   | integer    | null: false                    |
-| user           | references | null: false, foreign_key: true | 
+| Column           | Type       |  Options                       |
+| --------------   | ---------  | ------------------------------ |
+| title            | string     | null: false                    |
+| descripition     | text       | null: false                    |
+| category_id      | integer    | null: false                    |
+| condition_id     | integer    | null: false                    |
+| price            | integer    | null: false                    |
+| postage_id       | integer    | null: false                    |
+| area_id          | integer    | null: false                    |
+| shippingday_id   | integer    | null: false                    |
+| user             | references | null: false, foreign_key: true | 
 
 ### Association
 belongs_to :user
@@ -77,21 +77,30 @@ has_many :comments
 belongs_to :user
 belongs_to :item
 
+
 ## buys テーブル
 
-| Column         | Type       |  Options                       |
-| -------------- | ---------  | ------------------------------ |
-| cardno         | string     | null: false                    |
-| expiration     | string     | null: false                    |
-| securitycd     | integer    | null: false                    |
-| postno         | string     | null: false                    |
-| prefectures    | integer    | null: false                    |
-| cities         | string     | null: false                    |
-| address        | string     | null: false                    |
-| building       | string     |                   |
-| user           | references | null: false, foreign_key: true | 
-| item           | references | null: false, foreign_key: true | 
+| Column          | Type       |  Options                       |
+| --------------  | ---------  | ------------------------------ |
+| user            | references | null: false, foreign_key: true | 
+| item            | references | null: false, foreign_key: true | 
 
 ### Association
-belongs_to :user
-belongs_to :item
+has_one :deliverys
+
+
+## deliverys テーブル
+
+| Column          | Type       |  Options                       |
+| --------------  | ---------  | ------------------------------ |
+| postno          | string     | null: false                    |
+| area_id         | integer    | null: false                    |
+| cities          | string     | null: false                    |
+| address         | string     | null: false                    |
+| building        | string     |                                |
+| TEL             | string     | null: false,                   | 
+| buy             | references | null: false, foreign_key: true | 
+
+
+### Association
+belongs_to :buy
