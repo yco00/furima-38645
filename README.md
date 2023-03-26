@@ -64,7 +64,7 @@ has_many :buys
 ### Association
 belongs_to :user
 has_many :comments
-has_many :buys
+has_one :buys
 
 
 ## comments テーブル
