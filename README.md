@@ -37,7 +37,7 @@ Things you may want to cover:
 | encrypted_password    | string   | null: false               |
 | firstname             | string   | null: fals                |
 | lastname              | string   | null: false               |
-| firstnam              | string   | null: false               |
+| firstnameruby         | string   | null: false               |
 | lastnameruby          | string   | null: false               |
 | birthday              | date     | null: false               |
 
@@ -64,7 +64,7 @@ has_many :buys
 ### Association
 belongs_to :user
 has_many :comments
-has_one :buys
+belongs_to :buy
 
 
 ## comments テーブル
