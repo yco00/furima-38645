@@ -5,9 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
  validates :nickname, presence: true
- validates :firstname, presence: true
- validates :lastname, presence: true
- validates :firstnameruby, presence: true
+ validates :firstname, presence: true, format: /\A[ァ-ヶー－]+\z/
+ validates :lastname, presence: true, format: /\A[ァ-ヶー－]+\z/
+ validates :firstnameruby, presence: true, format: /\A[ァ-ヶー－]+\z/
  validates :lastnameruby, presence: true, format: /\A[ァ-ヶー－]+\z/
  validates :birthday, presence: true
 
