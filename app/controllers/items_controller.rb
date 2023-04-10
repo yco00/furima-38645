@@ -18,6 +18,11 @@ def create
     end
  end
 
+ 
+ def show
+ end
+
+
 
 private
 def item_params
