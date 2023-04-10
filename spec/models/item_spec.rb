@@ -83,7 +83,13 @@ RSpec.describe Item, type: :model do
         @item.price='４００'
         @item.valid?
         expect(@item.errors.full_messages).to include("Price is not a number")
-    end
+      end
+
+      it'priceが空白の場合出品できない'do
+        @item.price=''
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price is not a number")
+      end
 
       it'ユーザーが紐ついていなければ出品できない'do
         @item.user = nil
