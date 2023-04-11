@@ -16,12 +16,17 @@ def create
     else
       render :new
     end
- end
+end
 
- 
- def show
+
+def show
   @item = Item.find(params[:id])
- end
+end
+
+def edit
+  @item = Item.find(params[:id])
+end
+
 
 
 
