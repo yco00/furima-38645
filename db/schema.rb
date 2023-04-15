@@ -49,10 +49,10 @@ ActiveRecord::Schema.define(version: 2023_04_15_083113) do
     t.string "address", null: false
     t.string "building", null: false
     t.string "tel", null: false
-    t.bigint "buys_id", null: false
+    t.bigint "buy_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["buys_id"], name: "index_deliveries_on_buys_id"
+    t.index ["buy_id"], name: "index_deliveries_on_buy_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -91,6 +91,6 @@ ActiveRecord::Schema.define(version: 2023_04_15_083113) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "buys", "items"
   add_foreign_key "buys", "users"
-  add_foreign_key "deliveries", "buys", column: "buys_id"
+  add_foreign_key "deliveries", "buys"
   add_foreign_key "items", "users"
 end

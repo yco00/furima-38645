@@ -7,7 +7,7 @@ class CreateDeliveries < ActiveRecord::Migration[6.0]
       t.string :address,                 null:false
       t.string :building,                null:false
       t.string :tel,                     null:false
-      t.references :buys,null: false, foreign_key: true
+      t.references :buy,null: false, foreign_key: true
       t.timestamps
     end
   end
