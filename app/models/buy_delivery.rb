@@ -9,6 +9,8 @@ class BuyDelivery
     validates :cities
     validates :address
     validates :tel
+    validates :user_id
+    validates :item_id
   end
     validates :tel, length: { minimum: 10, maximum: 12, message: 'number is too short' }
     validates :tel,numericality: {only_integer: true, message: 'number is only number'}
