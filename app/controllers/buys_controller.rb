@@ -4,8 +4,11 @@ class BuysController < ApplicationController
     @item = Item.find(params[:item_id])
     @buy_delivery = BuyDelivery.new
     authenticate_user!
-    redirect_to root_path if current_user.id == @item.user_id
+    if current_user == @item.user || @item.buy.present?
+      redirect_to root_path
+    end
   end
+
   
   def new
     @buy_delivery = BuyDelivery.new
