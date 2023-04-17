@@ -1,6 +1,6 @@
 class BuyDelivery
   include ActiveModel::Model
-  attr_accessor :postno, :area_id, :cities, :address, :building, :tel, :item_id, :user_id
+  attr_accessor :postno, :area_id, :cities, :address, :building, :tel, :item_id, :user_id, :token
 
 
   with_options presence: true do
@@ -12,6 +12,8 @@ class BuyDelivery
   end
     validates :tel, length: { minimum: 10, maximum: 12, message: 'number is too short' }
     validates :tel,numericality: {only_integer: true, message: 'number is only number'}
+
+    validates :token, presence: true
   
   def save
     buy = Buy.create(item_id:item_id, user_id: user_id)
