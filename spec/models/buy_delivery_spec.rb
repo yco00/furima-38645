@@ -53,6 +53,12 @@ context '購入できない場合' do
     expect(@buy_delivery.errors.full_messages).to include("Address can't be blank")
   end 
 
+  it 'telが空の場合は購入できない'do
+    @buy_delivery.tel=""
+    @buy_delivery.valid?
+    expect(@buy_delivery.errors.full_messages).to include("Tel can't be blank")
+  end 
+
   it 'telの桁数が10桁未満の場合は購入できない'do
     @buy_delivery.tel="12345679"
     @buy_delivery.valid?

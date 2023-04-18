@@ -11,12 +11,11 @@ class BuyDelivery
     validates :tel
     validates :user_id
     validates :item_id
+    validates :token
   end
     validates :tel, length: { minimum: 10, maximum: 12, message: 'number is too short' }
     validates :tel,numericality: {only_integer: true, message: 'number is only number'}
 
-    validates :token, presence: true
-  
   def save
     buy = Buy.create(item_id:item_id, user_id: user_id)
     Delivery.create(postno: postno, area_id: area_id, cities: cities, address:address, building: building, tel: tel, buy_id: buy.id)

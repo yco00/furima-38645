@@ -1,9 +1,9 @@
 class BuysController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_item,only: [:index, :create]
 
   def index
-    @item = Item.find(params[:item_id])
     @buy_delivery = BuyDelivery.new
-    authenticate_user!
     if current_user == @item.user || @item.buy.present?
       redirect_to root_path
     end
@@ -11,11 +11,9 @@ class BuysController < ApplicationController
 
   
   def new
-    @buy_delivery = BuyDelivery.new
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @buy_delivery = BuyDelivery.new(buy_params)
     if @buy_delivery.valid?
         pay_item
@@ -45,5 +43,12 @@ class BuysController < ApplicationController
       currency: 'jpy'                 # 通貨の種類（日本円）
     )
   end
+
+
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
+
+
 end
 
