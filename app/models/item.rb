@@ -1,6 +1,8 @@
 class Item < ApplicationRecord
   belongs_to :user
   has_one_attached :image
+  has_one :buy
+
 
   validates :title, presence: true,length: { maximum: 40 }
   validates :descripition, presence: true,length: { maximum: 1000 }
